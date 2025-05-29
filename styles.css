@@ -8,6 +8,17 @@ body {
     font-family: 'Manrope', sans-serif;
     min-height: 100vh;
     background-color: black;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    height: auto !important;
+}
+
+html, body {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+    background-color: black;
 }
 
 .container {
