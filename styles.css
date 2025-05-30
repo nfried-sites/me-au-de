@@ -21,6 +21,11 @@ html, body {
     background-color: black;
 }
 
+body.home, html.home {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
 body:not(.home)::after {
     content: '';
     display: block;
