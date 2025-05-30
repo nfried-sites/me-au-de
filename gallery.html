@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Menno Car Detailing</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>html, body { background: #000 !important; }</style>
 </head>
 <body>
@@ -13,7 +14,132 @@
     </a>
     <div class="center-content">
         <h1>Gallery</h1>
+        <div class="gallery-grid">
+            <!-- Interior Before/After -->
+            <div class="gallery-pair">
+                <div class="gallery-img-col">
+                    <img src="media/May 27, 2025/int-before.jpeg" alt="Interior Before">
+                    <div class="gallery-label">Before</div>
+                </div>
+                <div class="gallery-img-col">
+                    <img src="media/May 27, 2025/int-after.jpeg" alt="Interior After">
+                    <div class="gallery-label">After</div>
+                </div>
+            </div>
+            <!-- Back Floor Before/After -->
+            <div class="gallery-pair">
+                <div class="gallery-img-col">
+                    <img src="media/May 28, 2025/back-floor-before.jpeg" alt="Back Floor Before">
+                    <div class="gallery-label">Before</div>
+                </div>
+                <div class="gallery-img-col">
+                    <img src="media/May 28, 2025/back-after.jpeg" alt="Back Floor After">
+                    <div class="gallery-label">After</div>
+                </div>
+            </div>
+        </div>
+        <h2 class="gallery-section-title">Spotlight Results</h2>
+        <div class="gallery-featured-grid">
+            <div class="gallery-featured-img-col"><img src="media/May 27, 2025/shotgun-after-2.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 27, 2025/shotgun-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 27, 2025/back-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 27, 2025/trunk-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 27, 2025/int-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 28, 2025/exterior-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 28, 2025/back-side-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 28, 2025/cleaning.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 28, 2025/shotgun-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 28, 2025/back-after.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 29, 2025/clean tire.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 29, 2025/full soaped - red.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 29, 2025/full black.jpeg" alt="Spotlight"></div>
+            <div class="gallery-featured-img-col"><img src="media/May 29, 2025/full soaped - black.jpeg" alt="Spotlight"></div>
+        </div>
         <a href="index.html" class="main-btn">Back to Home</a>
     </div>
+    <style>
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+            margin: 2.5rem auto 2rem auto;
+            max-width: 900px;
+        }
+        .gallery-pair {
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .gallery-img-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+        }
+        .gallery-img-col img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+            margin-bottom: 0.4rem;
+            background: #222;
+        }
+        .gallery-label {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: #181818;
+            border-radius: 999px;
+            padding: 0.3rem 1.2rem;
+            margin-bottom: 0.2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+        }
+        @media (max-width: 700px) {
+            .gallery-pair {
+                gap: 0.3rem;
+            }
+            .gallery-img-col {
+                width: auto;
+            }
+        }
+        .gallery-section-title {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem 0;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .gallery-featured-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.1rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+        .gallery-featured-img-col {
+            flex: 0 1 180px;
+            max-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gallery-featured-img-col img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+            background: #222;
+        }
+        @media (max-width: 700px) {
+            .gallery-featured-grid {
+                gap: 0.5rem;
+            }
+            .gallery-featured-img-col {
+                max-width: 48vw;
+            }
+        }
+    </style>
 </body>
 </html> 
