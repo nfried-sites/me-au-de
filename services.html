@@ -152,6 +152,112 @@
             height: 1.2rem;
             filter: grayscale(1);
         }
+        .img-shift-slider {
+            appearance: none;
+            width: 33%;
+            display: block;
+            margin: 0.3rem auto 0.7rem auto;
+            accent-color: #7ed957;
+            /* fallback for browsers that support accent-color */
+            height: 28px;
+            background: transparent;
+        }
+        /* Custom styling for Webkit browsers */
+        .img-shift-slider::-webkit-slider-thumb {
+            background: #7ed957;
+            border: 2px solid #5bbd3b;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(126,217,87,0.18);
+            margin-top: -6px;
+        }
+        .img-shift-slider::-webkit-slider-runnable-track {
+            background: #222;
+            height: 6px;
+            border-radius: 3px;
+        }
+        /* Custom styling for Firefox */
+        .img-shift-slider::-moz-range-thumb {
+            background: #7ed957;
+            border: 2px solid #5bbd3b;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(126,217,87,0.18);
+        }
+        .img-shift-slider::-moz-range-track {
+            background: #222;
+            height: 6px;
+            border-radius: 3px;
+        }
+        .img-shift-slider::-moz-range-thumb {
+            vertical-align: middle;
+        }
+        /* Custom styling for IE */
+        .img-shift-slider::-ms-thumb {
+            background: #7ed957;
+            border: 2px solid #5bbd3b;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(126,217,87,0.18);
+        }
+        .img-shift-slider::-ms-fill-lower, .img-shift-slider::-ms-fill-upper {
+            background: #222;
+            border-radius: 3px;
+        }
+        /* Remove outline on focus for all browsers */
+        .img-shift-slider:focus {
+            outline: none;
+        }
+        .materials-carousel {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 1.2rem auto;
+            position: relative;
+        }
+        .materials-slides {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .materials-slide {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .materials-slide.active {
+            display: flex;
+        }
+        .materials-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+            background: #222;
+        }
+        .materials-slide img.contain-img {
+            object-fit: contain;
+            width: auto;
+            max-width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -174,12 +280,16 @@
                         <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" fill="none"/></svg>
                     </button>
                     <div class="slide active">
-                        <img src="media/May 27, 2025/FullVacuuming.jpeg" alt="Full Vacuuming" class="slide-img">
+                        <!-- To adjust cropping: change the height, width, object-fit, or object-position properties in the .slide-img class or add a style attribute here. Example: style='object-position: top;' -->
+                        <img src="media/May 27, 2025/FullVacuuming.jpeg" alt="Full Vacuuming" class="slide-img shiftable" style="object-fit: cover; object-position: bottom; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="100" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Full Vacuuming</div>
                         <div class="slide-desc">Complete vacuuming of seats, carpets, floor mats, cupholders, under seats, and trunk to remove dirt, crumbs, and debris.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 27, 2025/InteriorSurfaceWipeDown.jpeg" alt="Interior Surface Wipe Down" class="slide-img">
+                        <!-- To adjust cropping: change the height, width, object-fit, or object-position properties in the .slide-img class or add a style attribute here. Example: style='object-position: bottom;' -->
+                        <img src="media/May 27, 2025/InteriorSurfaceWipeDown.jpeg" alt="Interior Surface Wipe Down" class="slide-img shiftable" style="object-fit: cover; object-position: center; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="50" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Interior Surface Wipe Down</div>
                         <div class="slide-desc">Gentle cleaning of dashboard, doors, console, and trim using premium, non-greasy interior products.</div>
                     </div>
@@ -189,22 +299,26 @@
                         <div class="slide-desc">Application of non-slip protectant on dash, door panels, and trim for a fresh, satin finish.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 28, 2025/LeatherConditioning.jpeg" alt="Leather Conditioning" class="slide-img">
+                        <img src="media/May 28, 2025/LeatherConditioning.jpeg" alt="Leather Conditioning" class="slide-img shiftable" style="object-fit: cover; object-position: center; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="50" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Leather Conditioning (if applicable)</div>
                         <div class="slide-desc">Safe conditioning of leather seats to restore softness, prevent cracking, and enhance appearance.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 28, 2025/InteriorWindows.jpeg" alt="Interior Windows Cleaning" class="slide-img">
+                        <img src="media/May 28, 2025/InteriorWindows.jpeg" alt="Interior Windows Cleaning" class="slide-img shiftable" style="object-fit: cover; object-position: bottom; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="100" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Interior Windows Cleaning</div>
                         <div class="slide-desc">Crystal-clear finish on all interior glass using ceramic + Rain-X glass cleaner.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 28, 2025/FloorMatPowerwash.jpeg" alt="Floor Mat Power-Wash" class="slide-img">
+                        <img src="media/May 28, 2025/FloorMatPowerwash.jpeg" alt="Floor Mat Power-Wash" class="slide-img shiftable" style="object-fit: cover; object-position: center; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="50" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Floor Mat Power-Wash</div>
                         <div class="slide-desc">Deep cleaning and drying of rubber or carpet mats for a spotless underfoot.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 27, 2025/FinalInspection.jpeg" alt="Final Interior Inspection" class="slide-img">
+                        <img src="media/May 27, 2025/FinalInspection.jpeg" alt="Final Interior Inspection" class="slide-img shiftable" style="object-fit: cover; object-position: top; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="0" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Final Interior Inspection</div>
                         <div class="slide-desc">Thorough check for missed spots or imperfections, ensuring every corner is detailed.</div>
                     </div>
@@ -226,12 +340,16 @@
                         <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" fill="none"/></svg>
                     </button>
                     <div class="slide active">
-                        <img src="media/May 29, 2025/PreWashFoamSoak.jpeg" alt="Pre-Wash & Foam Soak" class="slide-img">
+                        <!-- To adjust cropping: change the height, width, object-fit, or object-position properties in the .slide-img class or add a style attribute here. Example: style='object-fit: cover; object-position: top;' -->
+                        <img src="media/May 29, 2025/PreWashFoamSoak.jpeg" alt="Pre-Wash & Foam Soak" class="slide-img shiftable" style="object-fit: cover; object-position: center; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="50" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Pre-Wash & Foam Soak</div>
                         <div class="slide-desc">Surface rinse and foam cannon application to loosen dirt and grime before hand washing.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 29, 2025/WheelTire.jpeg" alt="Wheel & Tire Cleaning" class="slide-img">
+                        <!-- To adjust cropping: change the height, width, object-fit, or object-position properties in the .slide-img class or add a style attribute here. Example: style='object-fit: cover; object-position: bottom;' -->
+                        <img src="media/May 29, 2025/WheelTire.jpeg" alt="Wheel & Tire Cleaning" class="slide-img shiftable" style="object-fit: cover; object-position: center; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="50" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Wheel & Tire Cleaning</div>
                         <div class="slide-desc">Detailed scrubbing and cleaning of wheels, rims, and tires, finished with ceramic tire dressing for deep shine.</div>
                     </div>
@@ -241,28 +359,108 @@
                         <div class="slide-desc">Scratch-free panel washing using a two-bucket system (soap + rinse) with high-quality mitts.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 29, 2025/rhshotclean.jpeg" alt="Hand Drying" class="slide-img">
+                        <img src="media/May 29, 2025/rhshotclean.jpeg" alt="Hand Drying" class="slide-img shiftable" style="object-fit: cover; object-position: center; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="50" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Hand Drying</div>
                         <div class="slide-desc">Gentle drying with premium microfiber towels to avoid water spots.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 29, 2025/Ceramic31.jpeg" alt="Ceramic 3-in-1 Wax Application" class="slide-img">
+                        <img src="media/May 29, 2025/Ceramic31.jpeg" alt="Ceramic 3-in-1 Wax Application" class="slide-img shiftable" style="object-fit: cover; object-position: bottom; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="100" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Ceramic 3-in-1 Wax Application</div>
                         <div class="slide-desc">Panel-by-panel ceramic wax coating for a long-lasting, high-gloss, water-repellent finish.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 28, 2025/ExteriorGlass.jpeg" alt="Exterior Glass Cleaning" class="slide-img">
+                        <!-- To adjust cropping: change the height, width, object-fit, or object-position properties in the .slide-img class or add a style attribute here. Example: style='object-fit: cover; object-position: left;' -->
+                        <img src="media/May 28, 2025/ExteriorGlass.jpeg" alt="Exterior Glass Cleaning" class="slide-img shiftable" style="object-fit: cover; object-position: bottom; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="100" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Exterior Glass Cleaning</div>
                         <div class="slide-desc">Spotless cleaning of all exterior glass with water-repellent treatment.</div>
                     </div>
                     <div class="slide">
-                        <img src="media/May 28, 2025/FinalExteriorInspection.jpeg" alt="Final Exterior Inspection" class="slide-img">
+                        <!-- To adjust cropping: change the height, width, object-fit, or object-position properties in the .slide-img class or add a style attribute here. Example: style='object-fit: cover; object-position: right;' -->
+                        <img src="media/May 28, 2025/FinalExteriorInspection.jpeg" alt="Final Exterior Inspection" class="slide-img shiftable" style="object-fit: cover; object-position: bottom; height: 240px; width: 90%;">
+                        <input type="range" min="0" max="100" value="100" class="img-shift-slider" oninput="shiftImage(this)">
                         <div class="slide-title">Final Exterior Inspection</div>
                         <div class="slide-desc">Comprehensive check for streaks, missed areas, or swirl marks to ensure flawless delivery.</div>
                     </div>
                     <button class="slider-arrow right" onclick="nextSlide('exterior')" aria-label="Next">
                         <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" fill="none"/></svg>
                     </button>
+                </div>
+            </div>
+        </div>
+        <div class="materials-section" style="max-width:700px;margin:2.5rem auto 2.5rem auto;padding:1.5rem 1.2rem 1.2rem 1.2rem;background:#181818;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.18);color:#fff;">
+            <h2 style="text-align:center;font-size:1.3rem;font-weight:700;margin-bottom:1.2rem;letter-spacing:0.5px;">Our Premium Products</h2>
+            <div class="materials-carousel" style="position:relative;max-width:320px;margin:0 auto 1.2rem auto;">
+                <button class="slider-arrow left" onclick="prevMaterialSlide()" aria-label="Previous" style="position:absolute;left:-2.2rem;top:50%;transform:translateY(-50%);z-index:2;">
+                    <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+                </button>
+                <div class="materials-slides">
+                    <div class="materials-slide active"><img src="media/materials/allMaterials.jpeg" alt="All Materials" class="contain-img"></div>
+                    <div class="materials-slide"><img src="media/materials/interiorcleaner.jpeg" alt="Griot's Garage Interior Cleaner" style="max-width:180px;width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.14);background:#222;"></div>
+                    <div class="materials-slide"><img src="media/materials/cermaicglasscleaner.jpeg" alt="Griot's Garage Ceramic Glass Cleaner" style="max-width:180px;width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.14);background:#222;"></div>
+                    <div class="materials-slide"><img src="media/materials/ceramictiredressing.jpeg" alt="Griot's Garage Ceramic Tire Dressing" style="max-width:180px;width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.14);background:#222;"></div>
+                    <div class="materials-slide"><img src="media/materials/wheelcleaner.jpeg" alt="Car Guys Wheel Cleaner" style="max-width:180px;width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.14);background:#222;"></div>
+                </div>
+                <button class="slider-arrow right" onclick="nextMaterialSlide()" aria-label="Next" style="position:absolute;right:-2.2rem;top:50%;transform:translateY(-50%);z-index:2;">
+                    <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+                </button>
+            </div>
+            <div style="font-size:1.08rem;line-height:1.6;text-align:center;">
+                We use <b>Griot's Garage</b> products because we've found they bring some of the highest quality results in the industry. Even though the price point for these products is higher than most, their effectiveness and the results they deliver far outweigh the cons. This commitment to quality is reflected in our pricing as well—we aim to deliver the highest quality detailing possible.<br><br>
+                We also found <b>Car Guys Wheel Cleaner</b> to be the most effective at removing grease and grit from wheels, leaving a shine that outlasts the competitors.
+            </div>
+        </div>
+        <div class="image-trains-container" style="display:flex;gap:2.5vw;max-width:900px;margin:2.5rem auto 2rem auto;flex-wrap:wrap;">
+            <div class="image-train-section" style="flex:1 1 340px;min-width:260px;">
+                <h2 style="text-align:center;font-size:1.1rem;font-weight:700;margin-bottom:0.8rem;letter-spacing:0.5px;">Interior Results</h2>
+                <div class="image-train" style="display:flex;overflow-x:auto;gap:0.7rem;padding:0.7rem 0 0.7rem 0;scrollbar-width:thin;">
+                    <img src="media/May 27, 2025/InteriorSurfaceWipeDown.jpeg" alt="Interior Surface Wipe Down" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/FullVacuuming.jpeg" alt="Full Vacuuming" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/intfront-dirty.jpeg" alt="Interior Front Dirty" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/int-before.jpeg" alt="Interior Before" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/back-floor-before.jpeg" alt="Back Floor Before" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/Bakcdirty.jpeg" alt="Back Dirty" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/cleaning.jpeg" alt="Cleaning" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/RubberVinylPlasticDressing.jpeg" alt="Rubber Vinyl Plastic Dressing" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/LeatherConditioning.jpeg" alt="Leather Conditioning" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/InteriorWindows.jpeg" alt="Interior Windows" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/FloorMatPowerwash.jpeg" alt="Floor Mat Powerwash" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                </div>
+            </div>
+            <div class="image-train-section" style="flex:1 1 340px;min-width:260px;">
+                <h2 style="text-align:center;font-size:1.1rem;font-weight:700;margin-bottom:0.8rem;letter-spacing:0.5px;">Exterior Results</h2>
+                <div class="image-train" style="display:flex;overflow-x:auto;gap:0.7rem;padding:0.7rem 0 0.7rem 0;scrollbar-width:thin;">
+                    <img src="media/May 27, 2025/HandWash.jpeg" alt="Hand Wash" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/outside-after.jpeg" alt="Outside After" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/shotgun-after.jpeg" alt="Shotgun After" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/back-after.jpeg" alt="Back After" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 27, 2025/FinalInspection.jpeg" alt="Final Inspection" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/FinalExteriorInspection.jpeg" alt="Final Exterior Inspection" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/trunk-on-before.jpeg" alt="Trunk On Before" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/main-photo.jpeg" alt="Main Photo" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/exterior-after.jpeg" alt="Exterior After" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/ExteriorGlass.jpeg" alt="Exterior Glass" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/back-side-after.jpeg" alt="Back Side After" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 28, 2025/trunk-before.jpeg" alt="Trunk Before" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/IMG_4682.jpeg" alt="IMG 4682" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/recleanback.jpeg" alt="Reclean Back" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/rcleanside.jpeg" alt="R Clean Side" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/IMG_4679.jpeg" alt="IMG 4679" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/IMG_4678.jpeg" alt="IMG 4678" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/brdredclean2.jpeg" alt="BRD Red Clean 2" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/brdshotredclean.jpeg" alt="BRD Shot Red Clean" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/IMG_4670.jpeg" alt="IMG 4670" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/WheelTire.jpeg" alt="Wheel Tire" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/rhshotclean.jpeg" alt="RH Shot Clean" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/rfclean.jpeg" alt="RF Clean" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/IMG_4666.jpeg" alt="IMG 4666" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/rrsideclean.jpeg" alt="RR Side Clean" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/PreWashFoamSoak.jpeg" alt="Pre Wash Foam Soak" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/lsideclean.jpeg" alt="L Side Clean" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/brsideclean.jpeg" alt="BR Side Clean" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
+                    <img src="media/May 29, 2025/Ceramic31.jpeg" alt="Ceramic 3-in-1" style="height:120px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.13);background:#222;">
                 </div>
             </div>
         </div>
@@ -295,6 +493,32 @@
     // For inline onclick
     window.prevSlide = function(which) { window[`prevSlide_${which}`](); };
     window.nextSlide = function(which) { window[`nextSlide_${which}`](); };
+    function shiftImage(slider) {
+        const img = slider.previousElementSibling;
+        if (!img) return;
+        // Map slider value (0-100) to object-position percent (0% = top, 100% = bottom)
+        img.style.objectPosition = `center ${slider.value}%`;
+    }
+    // Carousel logic for materials section
+    let materialIndex = 0;
+    function showMaterialSlide(idx) {
+        const slides = document.querySelectorAll('.materials-slide');
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === idx);
+        });
+    }
+    function prevMaterialSlide() {
+        const slides = document.querySelectorAll('.materials-slide');
+        materialIndex = (materialIndex - 1 + slides.length) % slides.length;
+        showMaterialSlide(materialIndex);
+    }
+    function nextMaterialSlide() {
+        const slides = document.querySelectorAll('.materials-slide');
+        materialIndex = (materialIndex + 1) % slides.length;
+        showMaterialSlide(materialIndex);
+    }
+    // Initialize on page load
+    showMaterialSlide(materialIndex);
     </script>
 </body>
 </html> 
